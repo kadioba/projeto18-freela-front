@@ -13,3 +13,13 @@ export const HeaderText = styled.h1`
     color: white;
     text-align: center;
 `
+export const goBackButton = styled.button`
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+`
