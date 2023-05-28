@@ -8,8 +8,8 @@ export default function FlightsPagePanel(props) {
     const maxPrice = Math.max(...prices)
     console.log(maxPrice)
 
-    const [minPriceSelected, setMinPriceSelected] = useState("...")
-    const [maxPriceSelected, setMaxPriceSelected] = useState("...")
+    const [minPriceSelected, setMinPriceSelected] = useState("")
+    const [maxPriceSelected, setMaxPriceSelected] = useState("")
 
     function handleMinPriceSelected(event) {
         setMinPriceSelected(event.target.value)
@@ -26,11 +26,11 @@ export default function FlightsPagePanel(props) {
     return (
         <FlightsPagePanelContainer>
             <div>
-                <h1>Preço Mínimo: R${minPriceSelected},00 </h1>
+                <h1>Preço Mínimo{minPriceSelected ? `: R$${minPriceSelected},00` : ""} </h1>
                 <input type="range" min={minPrice} max={maxPrice} onChange={handleMinPriceSelected} />
             </div>
             <div>
-                <h1>Preço Máximo: R${maxPriceSelected},00 </h1>
+                <h1>Preço Máximo{maxPriceSelected ? `: R$${maxPriceSelected},00` : ""} </h1>
                 <input type="range" min={minPrice} max={maxPrice} onChange={handleMaxPriceSelected} />
             </div>
         </FlightsPagePanelContainer>
