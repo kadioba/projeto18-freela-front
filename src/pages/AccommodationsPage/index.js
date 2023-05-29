@@ -7,6 +7,7 @@ import AccommodationsCard from "../../components/AccommodationsCard"
 import AccommodationsPagePanel from "../../components/AccommodationsPagePanel"
 import { AppBody } from "../../Style/BodyStyle"
 import { AccommodationsPageButton } from "../FlightsPage/styled"
+import ClientJourney from "../../components/ClientJourney"
 
 export default function AccommodationsPage() {
     const params = useParams()
@@ -53,7 +54,7 @@ export default function AccommodationsPage() {
                     </Accommodations>
                 </AccommodationsPageContent>
             </AccommodationsPageContainer>
-            <FlightsPageButton onClick={() => navigate(`/flights/${params.cityId}`)}>Ver passagens</FlightsPageButton>
+            <ClientJourney page={"accommodations"} cityId={params.cityId} />
         </AppBody>
     )
 }

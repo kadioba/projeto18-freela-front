@@ -7,6 +7,7 @@ import FlightCard from "../../components/FlightCard/FlightCard"
 import dayjs from "dayjs"
 import FlightsPagePanel from "../../components/FlightsPagePanel"
 import { AppBody } from "../../Style/BodyStyle"
+import ClientJourney from "../../components/ClientJourney"
 
 export default function FlightsPage() {
     const params = useParams()
@@ -53,7 +54,7 @@ export default function FlightsPage() {
                     </Flights>
                 </FlightsPageContent>
             </FlightsPageContainer>
-            <AccommodationsPageButton onClick={() => navigate(`/accommodations/${params.cityId}`)}>Ver hospedagens</AccommodationsPageButton>
+            <ClientJourney page={"flights"} cityId={params.cityId} />
         </AppBody>
     )
 }

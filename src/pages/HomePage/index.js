@@ -4,6 +4,7 @@ import { DestinationDropdown, HomepageContainer } from "./styled";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AppBody } from "../../Style/BodyStyle";
+import ClientJourney from "../../components/ClientJourney";
 
 export default function HomePage() {
 
@@ -25,7 +26,7 @@ export default function HomePage() {
     }
 
     return (
-        <AppBody>
+        <AppBody background={"https://wallpaperaccess.com/full/488392.jpg"}>
             <Header />
             <HomepageContainer>
                 <DestinationDropdown onChange={handleDestination}>
@@ -33,6 +34,7 @@ export default function HomePage() {
                     {cities ? cities.map(city => <option value={city.id}>{city.name}</option>) : <option>Carregando...</option>}
                 </DestinationDropdown>
             </HomepageContainer>
+            <ClientJourney page={"home"} />
         </AppBody>
     );
 }

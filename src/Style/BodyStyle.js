@@ -7,4 +7,6 @@ export const AppBody = styled.div`
     width: 100vw;
     height: 100vh;
     overflow-x: auto;
+    background-image: url(${props => props.background});
+    background-size: cover;
 `
