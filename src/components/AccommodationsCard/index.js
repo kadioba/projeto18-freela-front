@@ -9,7 +9,7 @@ export default function AccommodationsCard(props) {
     }
 
     return (
-        <AccommodationContainer >
+        <AccommodationContainer onClick={handleAccommodationDetails}>
             <img src={props.picture} alt="" />
             <h1>{props.name}</h1>
             <h1>Valor da diária: R${props.pricePerDay}</h1>

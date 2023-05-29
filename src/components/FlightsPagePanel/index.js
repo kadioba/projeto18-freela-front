@@ -4,9 +4,7 @@ import { FlightsPagePanelContainer } from "./styled";
 export default function FlightsPagePanel(props) {
     const prices = props.flights.map(flight => flight.price)
     const minPrice = Math.min(...prices)
-    console.log(minPrice)
     const maxPrice = Math.max(...prices)
-    console.log(maxPrice)
 
     const [minPriceSelected, setMinPriceSelected] = useState("")
     const [maxPriceSelected, setMaxPriceSelected] = useState("")

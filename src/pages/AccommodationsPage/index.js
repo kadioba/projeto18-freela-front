@@ -11,6 +11,7 @@ export default function AccommodationsPage() {
 
     const [accommodations, setAccommodations] = useState([])
     const [filteredAccommodations, setFilteredAccommodations] = useState("")
+    console.log(accommodations)
     const [city, setCity] = useState("")
 
 
