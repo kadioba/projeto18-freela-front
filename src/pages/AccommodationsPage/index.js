@@ -21,12 +21,12 @@ export default function AccommodationsPage() {
 
 
     useEffect(() => {
-        const requestAccommodations = axios.get(`http://localhost:5000/accommodations/${params.cityId}`)
+        const requestAccommodations = axios.get(`https://viagensalucinantes-api.onrender.com/accommodations/${params.cityId}`)
         requestAccommodations.then(response => {
             setAccommodations(response.data)
             setFilteredAccommodations(response.data)
         })
-        const requestCity = axios.get(`http://localhost:5000/city/${params.cityId}`)
+        const requestCity = axios.get(`https://viagensalucinantes-api.onrender.com/city/${params.cityId}`)
         requestCity.then(response => {
             setCity(response.data.name)
         })

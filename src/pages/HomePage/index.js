@@ -14,7 +14,7 @@ export default function HomePage() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        const request = axios.get("http://localhost:5000/cities")
+        const request = axios.get(`https://viagensalucinantes-api.onrender.com/cities`)
         request.then(response => {
             setCities(response.data)
         })

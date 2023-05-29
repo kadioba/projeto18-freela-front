@@ -20,12 +20,12 @@ export default function FlightsPage() {
     console.log(flights)
 
     useEffect(() => {
-        const requestFlights = axios.get(`http://localhost:5000/flights/${params.cityId}`)
+        const requestFlights = axios.get(`https://viagensalucinantes-api.onrender.com/flights/${params.cityId}`)
         requestFlights.then(response => {
             setFlights(response.data)
             setFilteredFlights(response.data)
         })
-        const requestCity = axios.get(`http://localhost:5000/city/${params.cityId}`)
+        const requestCity = axios.get(`https://viagensalucinantes-api.onrender.com/city/${params.cityId}`)
         requestCity.then(response => {
             setCity(response.data.name)
         })

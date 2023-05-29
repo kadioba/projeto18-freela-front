@@ -13,7 +13,7 @@ export default function FlightDetails() {
     console.log(flight)
 
     useEffect(() => {
-        const request = axios.get(`http://localhost:5000/flight/${params.flightId}`)
+        const request = axios.get(`https://viagensalucinantes-api.onrender.com/flight/${params.flightId}`)
         request.then(response => {
             setFlight(response.data)
         })

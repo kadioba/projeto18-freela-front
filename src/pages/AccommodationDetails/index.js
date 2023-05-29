@@ -14,7 +14,7 @@ export default function AccommodationsDetails() {
     console.log(accommodation)
 
     useEffect(() => {
-        const request = axios.get(`http://localhost:5000/accommodation/${params.accommodationId}`);
+        const request = axios.get(`https://viagensalucinantes-api.onrender.com/accommodation/${params.accommodationId}`);
         request.then(response => {
             setAccommodation(response.data);
             setPictures(response.data.pictures);
