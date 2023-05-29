@@ -26,4 +26,7 @@ export const HeaderText = styled.h1`
     color: white;
     text-align: center;
     font-family: 'Lobster', cursive;
+    :hover {
+        cursor: pointer;
+    }
 `

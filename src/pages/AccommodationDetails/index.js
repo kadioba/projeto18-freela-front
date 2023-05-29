@@ -33,22 +33,21 @@ export default function AccommodationsDetails() {
             <AccommodationsDetailsContainer>
                 <Title>{accommodation.name}</Title>
                 <Gallery>
-                    {pictures.map(picture => <img src={picture.url} alt="" />)}
+                    {pictures.map((picture, index) => <img key={index} src={picture.url} alt="" />)}
                 </Gallery>
                 <Description>
                     <ul>
                         <h1>Características</h1>
                         <li>Cidade: {accommodation.location}</li>
                         <li>Preço da diária: R$ {accommodation.pricePerDay},00</li>
-                        {<li>Descrição: {accommodation.description}</li>}
+                        <li>Descrição: {accommodation.description}</li>
                     </ul>
                     <ul>
                         <h1>Comodidades</h1>
-                        {conveniences.map(convenience => <li>{convenience.name}</li>)}
+                        {conveniences.map((convenience, index) => <li key={index}>{convenience.name}</li>)}
                     </ul>
                 </Description>
-
             </AccommodationsDetailsContainer>
         </AppBody>
-    )
+    );
 }

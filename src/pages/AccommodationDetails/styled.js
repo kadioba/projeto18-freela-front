@@ -5,50 +5,54 @@ export const AccommodationsDetailsContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 170px;
-`
+    margin: 5% auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 800px;
+    width: 100%;
+`;
+
 export const Title = styled.h1`
     text-align: center;
-    font-size: 30px;
+    font-size: 2em;
+    color: #333;
+    text-transform: uppercase;
     margin-bottom: 20px;
-`
+`;
+
 export const Gallery = styled.div`
-    width: 80vw;
-    height: 40vh;
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    background-color: blueviolet;
     overflow: auto;
-    img{
-        max-width: 35vw;
-        max-height: 25vh ;
-        margin: 0px 20px;
+    img {
+        max-width: 100%;
+        height: auto;
+        margin: 15px;
     }
-`
+`;
 
 export const Description = styled.div`
-    width: 80vw;
-    height: 40vh;
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: yellow;
-    overflow: auto;
-    ul{
-        width: 40vw;
-        height: 25vh ;
-        margin: 0px 20px;
-        border: 1px solid black;
-        padding: 10px;
-        overflow-y: scroll;
-        scroll-behavior: smooth;
+    justify-content: space-around;
+    margin-top: 20px;
+    width: 100%;
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+        width: 35vw;
+        h1 {
+            font-size: 1.5em;
+            color: #333;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        li {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
     }
-    li {
-        margin: 10px 0px;
-        font-size: 15px;
-    }
-    h1 {
-        font-size: 30px;
-    }
-`
+`;
