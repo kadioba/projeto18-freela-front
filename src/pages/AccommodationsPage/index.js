@@ -1,14 +1,17 @@
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Header from "../../components/Header/Header"
-import { Accommodations, AccommodationsPageContainer, AccommodationsPageContent } from "./styled"
+import { Accommodations, AccommodationsPageContainer, AccommodationsPageContent, AccommodationsPageTitle, FlightsPageButton } from "./styled"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import AccommodationsCard from "../../components/AccommodationsCard"
 import AccommodationsPagePanel from "../../components/AccommodationsPagePanel"
 import { AppBody } from "../../Style/BodyStyle"
+import { AccommodationsPageButton } from "../FlightsPage/styled"
 
 export default function AccommodationsPage() {
     const params = useParams()
+
+    const navigate = useNavigate()
 
     const [accommodations, setAccommodations] = useState([])
     const [filteredAccommodations, setFilteredAccommodations] = useState("")
@@ -38,7 +41,7 @@ export default function AccommodationsPage() {
                     accommodations={accommodations}
                 />
                 <AccommodationsPageContent>
-                    {city ? <h1>Hospedagens em {city} </h1> : <h1>Carregando...</h1>}
+                    {city ? <AccommodationsPageTitle>Hospedagens em {city} </AccommodationsPageTitle> : <h1>Carregando...</h1>}
                     <Accommodations>
                         {filteredAccommodations ? filteredAccommodations.map(accommodation => <AccommodationsCard
                             key={accommodation.id}
@@ -50,6 +53,7 @@ export default function AccommodationsPage() {
                     </Accommodations>
                 </AccommodationsPageContent>
             </AccommodationsPageContainer>
+            <FlightsPageButton onClick={() => navigate(`/flights/${params.cityId}`)}>Ver passagens</FlightsPageButton>
         </AppBody>
     )
 }
