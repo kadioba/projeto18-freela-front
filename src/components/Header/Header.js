@@ -10,5 +10,6 @@ export default function Header(props) {
             <HeaderText>Viagens Alucinantes</HeaderText>
             {props.goBack ? <button onClick={() => navigate(-1)}>Voltar</button> : <></>}
         </HeaderContainer>
+
     )
 }

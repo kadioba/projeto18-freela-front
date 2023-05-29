@@ -2,7 +2,6 @@ import styled from "styled-components"
 
 export const HomepageContainer = styled.div`
     width: 100vw;
-    height: 100vh - 70px;
     margin-top: 70px;
     display: flex;
     flex-direction: column;

@@ -1,14 +1,17 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Header from "../../components/Header/Header"
-import { Flights, FlightsPageContainer, FlightsPageContent } from "./styled"
+import { AccommodationsPageButton, Flights, FlightsPageContainer, FlightsPageContent, FlightsPageTitle } from "./styled"
 import FlightCard from "../../components/FlightCard/FlightCard"
 import dayjs from "dayjs"
 import FlightsPagePanel from "../../components/FlightsPagePanel"
+import { AppBody } from "../../Style/BodyStyle"
 
 export default function FlightsPage() {
     const params = useParams()
+
+    const navigate = useNavigate()
 
     const [flights, setFlights] = useState([])
     const [filteredFlights, setFilteredFlights] = useState("")
@@ -29,7 +32,7 @@ export default function FlightsPage() {
     }, [params.cityId])
 
     return (
-        <>
+        <AppBody>
             <Header />
             <FlightsPageContainer>
                 <FlightsPagePanel
@@ -38,7 +41,7 @@ export default function FlightsPage() {
                     flights={flights}
                 />
                 <FlightsPageContent>
-                    {city ? <h1>Passagens para {city} </h1> : <h1>Carregando...</h1>}
+                    {city ? <FlightsPageTitle>Passagens para {city} </FlightsPageTitle> : <h1>Carregando...</h1>}
                     <Flights>
                         {filteredFlights ? filteredFlights.map(flight => <FlightCard
                             key={flight.id}
@@ -50,6 +53,7 @@ export default function FlightsPage() {
                     </Flights>
                 </FlightsPageContent>
             </FlightsPageContainer>
-        </>
+            <AccommodationsPageButton onClick={() => navigate(`/accommodations/${params.cityId}`)}>Ver hospedagens</AccommodationsPageButton>
+        </AppBody>
     )
 }

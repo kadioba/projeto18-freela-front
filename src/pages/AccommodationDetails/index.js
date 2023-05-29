@@ -3,17 +3,23 @@ import Header from "../../components/Header/Header";
 import { AccommodationsDetailsContainer, Description, Gallery, Title } from "./styled";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { AppBody } from "../../Style/BodyStyle";
 
 export default function AccommodationsDetails() {
     const params = useParams();
 
     const [accommodation, setAccommodation] = useState([]);
+    const [pictures, setPictures] = useState([]);
+    const [conveniences, setConveniences] = useState([]);
     console.log(accommodation)
 
     useEffect(() => {
         const request = axios.get(`http://localhost:5000/accommodation/${params.accommodationId}`);
         request.then(response => {
             setAccommodation(response.data);
+            setPictures(response.data.pictures);
+            setConveniences(response.data.conveniences);
+
         });
     }, [params.accommodationId]);
 
@@ -22,12 +28,12 @@ export default function AccommodationsDetails() {
     }
 
     return (
-        <>
-            <Header />
+        <AppBody>
+            <Header goBack={true} />
             <AccommodationsDetailsContainer>
                 <Title>{accommodation.name}</Title>
                 <Gallery>
-                    {accommodation.pictures.map(picture => <img src={picture.url} alt="" />)}
+                    {pictures.map(picture => <img src={picture.url} alt="" />)}
                 </Gallery>
                 <Description>
                     <ul>
@@ -38,11 +44,11 @@ export default function AccommodationsDetails() {
                     </ul>
                     <ul>
                         <h1>Comodidades</h1>
-                        {accommodation.conveniences.map(convenience => <li>{convenience.name}</li>)}
+                        {conveniences.map(convenience => <li>{convenience.name}</li>)}
                     </ul>
                 </Description>
 
             </AccommodationsDetailsContainer>
-        </>
+        </AppBody>
     )
 }

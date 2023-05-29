@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import AccommodationsCard from "../../components/AccommodationsCard"
 import AccommodationsPagePanel from "../../components/AccommodationsPagePanel"
+import { AppBody } from "../../Style/BodyStyle"
 
 export default function AccommodationsPage() {
     const params = useParams()
@@ -28,7 +29,7 @@ export default function AccommodationsPage() {
     }, [params.cityId])
 
     return (
-        <>
+        <AppBody>
             <Header />
             <AccommodationsPageContainer>
                 <AccommodationsPagePanel
@@ -49,6 +50,6 @@ export default function AccommodationsPage() {
                     </Accommodations>
                 </AccommodationsPageContent>
             </AccommodationsPageContainer>
-        </>
+        </AppBody>
     )
 }

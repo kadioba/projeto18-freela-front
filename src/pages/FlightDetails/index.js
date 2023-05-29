@@ -2,8 +2,9 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import Header from "../../components/Header/Header"
-import { FlighDetailsContainer } from "./styled"
+import { FlighDetailsContainer, FlightDetailsHeading, FlightDetailsInfo, FlightDetailsSubHeading } from "./styled"
 import dayjs from "dayjs"
+import { AppBody } from "../../Style/BodyStyle"
 
 export default function FlightDetails() {
     const params = useParams()
@@ -23,20 +24,20 @@ export default function FlightDetails() {
     }
 
     return (
-        <>
+        <AppBody>
             <Header goBack={true} />
             <FlighDetailsContainer>
-                <h1>Passagens para {flight.destination}</h1>
-                <h1>{dayjs(flight.departureTime).format("DD/MM/YYYY")}</h1>
-                <div>
-                    <h2>Cidade de destino: {flight.destination}</h2>
-                    <h2>Cidade de origem: {flight.origin}</h2>
-                    <h2>Companhia aérea: {flight.name}</h2>
-                    <h2>Horário de partida: {dayjs(flight.departureTime).format("HH:mm")}</h2>
-                    <h2>Horário previsto para chegada: {dayjs(flight.arrivalTime).format("HH:mm")}</h2>
-                    <h2>Preço da passagem: R$ {flight.price},00</h2>
-                </div>
+                <FlightDetailsHeading>Passagens para {flight.destination}</FlightDetailsHeading>
+                <FlightDetailsHeading>{dayjs(flight.departureTime).format("DD/MM/YYYY")}</FlightDetailsHeading>
+                <FlightDetailsInfo>
+                    <FlightDetailsSubHeading>Cidade de destino: {flight.destination}</FlightDetailsSubHeading>
+                    <FlightDetailsSubHeading>Cidade de origem: {flight.origin}</FlightDetailsSubHeading>
+                    <FlightDetailsSubHeading>Companhia aérea: {flight.name}</FlightDetailsSubHeading>
+                    <FlightDetailsSubHeading>Horário de partida: {dayjs(flight.departureTime).format("HH:mm")}</FlightDetailsSubHeading>
+                    <FlightDetailsSubHeading>Horário previsto para chegada: {dayjs(flight.arrivalTime).format("HH:mm")}</FlightDetailsSubHeading>
+                    <FlightDetailsSubHeading>Preço da passagem: R$ {flight.price},00</FlightDetailsSubHeading>
+                </FlightDetailsInfo>
             </FlighDetailsContainer>
-        </>
-    )
+        </AppBody>
+    );
 }
